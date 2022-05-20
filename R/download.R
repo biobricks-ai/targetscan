@@ -1,4 +1,4 @@
-# This file downloads all data files from SIDER 
+# This file downloads all data files from TargetScan
 library(rvest)
 library(purrr)
 library(fs)

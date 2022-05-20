@@ -36,7 +36,7 @@ save_parquet <- function(file) {
 
 # WRITE OUTS ================================================================================
 fs::dir_ls(outdir) |> fs::file_delete() # delete files present in the directory
-list.files("cache/unzip", recursive = TRUE) |> walk(save_parquet) # convert .gz files to parquet
+list.files("cache/unzip", recursive = TRUE) |> walk(save_parquet) 
 
 
 
