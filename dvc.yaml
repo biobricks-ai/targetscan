@@ -1,0 +1,21 @@
+stages:
+  download_data:
+    cmd: Rscript R/download.R
+    deps:
+    - R/download.R
+    outs:
+    - cache/download
+  unzip_data:
+    cmd: sh Shell/unzip.sh
+    deps:
+    - Shell/unzip.sh
+    - cache/download
+    outs:
+    - cache/unzip
+  build_brick:
+    cmd: Rscript R/build.R
+    deps:
+    - R/build.R
+    - cache/unzip
+    outs:
+    - data/
