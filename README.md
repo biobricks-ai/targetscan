@@ -137,5 +137,5 @@ dvc get git@github.com:insilica/oncindex-bricks.git bricks/TargetScan/data/UTR_S
 
 **It is advised to import files into a project so that you will be able to track changes in the data set**
 ```
-dvc import git@github.com:insilica/oncindex-bricks.git bricks/meddra/data/ -o data
+dvc import git@github.com:insilica/oncindex-bricks.git bricks/TargetScan/data/ -o data
 ```
