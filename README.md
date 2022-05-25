@@ -7,6 +7,8 @@ dependencies:
     url: https://www.targetscan.org/cgi-bin/targetscan/data_download.vert80.cgi
 ---
 
+<a href="https://github.com/biobricks-ai/TargetScan/actions"><img src="https://github.com/biobricks-ai/TargetScan/actions/workflows/bricktools-check.yaml/badge.svg?branch=main"/></a>
+
 > TargetScan predicts biological targets of miRNAs by searching for the presence of conserved 8mer, 7mer, and 6mer sites that match the seed region of each miRNA (Lewis et al., 2005). As options, predictions with only poorly conserved sites and predictions with nonconserved miRNAs are also provided. Also identified are sites with mismatches in the seed region that are compensated by conserved 3' pairing (Friedman et al., 2009). In mammals, predictions are ranked based on the predicted efficacy of targeting as calculated using a biochemical model of miRNA-mediated repression, which was extended to all miRNA sequences using a convolutional neural network (McGeary, Lin, et al., 2019). As an option, predictions are also ranked on the basis of targeting efficacy estimated using cumulative weighted context++ scores of the sites (Agarwal et al., 2015). As another option, predictions are ranked by their probability of conserved targeting (PCT, Friedman et al., 2009). TargetScanHuman considers matches to human 3' UTRs and their orthologs, as defined by UCSC whole-genome alignments. Conserved targeting has also been detected within open reading frames (ORFs). A listing of these ORF sites can be found at the bottom of Supplemental Table 2 of Lewis et al., 2005.
 
 Biobricks.ai transforms [TargetScan](https://www.targetscan.org/cgi-bin/targetscan/data_download.vert80.cgi) into parquet files. 
