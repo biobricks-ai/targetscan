@@ -1,4 +1,4 @@
-# This file downloads all brick files from TargetScan
+# This file downloads all data files from TargetScan
 library(rvest)
 library(purrr)
 library(fs)

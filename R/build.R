@@ -4,7 +4,7 @@ library(arrow)
 library(data.table)
 library(tools)
 
-outdir <- fs::dir_create("../brick")
+outdir <- fs::dir_create("brick")
 
 save_parquet <- function(file) {
 	print(file)
