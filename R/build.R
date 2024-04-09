@@ -4,12 +4,12 @@ library(arrow)
 library(data.table)
 library(tools)
 
-outdir <- fs::dir_create("data")
+outdir <- fs::dir_create("../brick")
 
 save_parquet <- function(file) {
 	print(file)
 	file_path = paste0("cache/unzip/", file)
-	dir <- paste0("data/", fs::path_ext_remove(dirname(file)), "/")
+	dir <- paste0("brick/", fs::path_ext_remove(dirname(file)), "/")
 	dir.create(dir, recursive=TRUE)
 	file_ext = file_ext(file)
 	make_parquet = c("txt", "bed", "gff")

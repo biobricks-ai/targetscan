@@ -4,12 +4,14 @@ stages:
     cmd: Rscript R/download.R
     deps:
     - path: R/download.R
-      md5: 96a8bc028efd185346cb4e478c14904c
-      size: 718
+      hash: md5
+      md5: 810f3ff4cdca76969679683fbaf836a8
+      size: 719
     outs:
     - path: cache/download
-      md5: 51a89f1f2ce727e73f432c977e610ba1.dir
-      size: 2965597594
+      hash: md5
+      md5: c6d8d7b240971dbdc9add28657156f7f.dir
+      size: 2986334811
       nfiles: 19
   unzip_data:
     cmd: sh Shell/unzip.sh
@@ -18,26 +20,31 @@ stages:
       md5: 5b95b85601cab9f47fc01fe58e65e54d
       size: 173
     - path: cache/download
-      md5: 51a89f1f2ce727e73f432c977e610ba1.dir
-      size: 2965597594
+      hash: md5
+      md5: c6d8d7b240971dbdc9add28657156f7f.dir
+      size: 2986334811
       nfiles: 19
     outs:
     - path: cache/unzip
-      md5: ca5e4db76406aa539c76316404117c83.dir
-      size: 21805133712
+      hash: md5
+      md5: 34906d361d18fff7b01dc2e4d448cbb6.dir
+      size: 22024040507
       nfiles: 130
   build_brick:
     cmd: Rscript R/build.R
     deps:
     - path: R/build.R
-      md5: 6e756566109273d55743c49963814022
-      size: 1353
+      hash: md5
+      md5: 6fc84a956f932a0583d8afc9bb6b9495
+      size: 1358
     - path: cache/unzip
-      md5: ca5e4db76406aa539c76316404117c83.dir
-      size: 21805133712
+      hash: md5
+      md5: 34906d361d18fff7b01dc2e4d448cbb6.dir
+      size: 22024040507
       nfiles: 130
     outs:
-    - path: data/
-      md5: b29c23e024c1a3df1b6d3a95ab15bee1.dir
-      size: 4626941861
+    - path: brick/
+      hash: md5
+      md5: dabe0e62a4610acdfbb42cf5f830688a.dir
+      size: 4646622610
       nfiles: 108
