@@ -5,8 +5,13 @@ stages:
     deps:
     - path: R/download.R
       hash: md5
-      md5: 810f3ff4cdca76969679683fbaf836a8
-      size: 719
+      md5: d408550fd58fb804985df95c0f7b7313
+      size: 735
+    - path: checksum
+      hash: md5
+      md5: 393db31ad8ff857a3b922644b7bfe182.dir
+      size: 9912
+      nfiles: 1
     outs:
     - path: cache/download
       hash: md5
@@ -14,16 +19,17 @@ stages:
       size: 2986334811
       nfiles: 19
   unzip_data:
-    cmd: sh Shell/unzip.sh
+    cmd: sh stages/02_unzip.sh
     deps:
-    - path: Shell/unzip.sh
-      md5: 5b95b85601cab9f47fc01fe58e65e54d
-      size: 173
     - path: cache/download
       hash: md5
       md5: c6d8d7b240971dbdc9add28657156f7f.dir
       size: 2986334811
       nfiles: 19
+    - path: stages/02_unzip.sh
+      hash: md5
+      md5: 5b95b85601cab9f47fc01fe58e65e54d
+      size: 173
     outs:
     - path: cache/unzip
       hash: md5
@@ -35,8 +41,8 @@ stages:
     deps:
     - path: R/build.R
       hash: md5
-      md5: 6fc84a956f932a0583d8afc9bb6b9495
-      size: 1358
+      md5: bee9fe7a35292bdb960ccb86596325d6
+      size: 1355
     - path: cache/unzip
       hash: md5
       md5: 34906d361d18fff7b01dc2e4d448cbb6.dir
@@ -48,3 +54,16 @@ stages:
       md5: dabe0e62a4610acdfbb42cf5f830688a.dir
       size: 4646622610
       nfiles: 108
+  invalidate:
+    cmd: stages/00_invalidate.sh
+    deps:
+    - path: stages/00_invalidate.sh
+      hash: md5
+      md5: e446d0cbcbabb61739792516b2095752
+      size: 478
+    outs:
+    - path: checksum
+      hash: md5
+      md5: 393db31ad8ff857a3b922644b7bfe182.dir
+      size: 9912
+      nfiles: 1

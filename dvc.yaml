@@ -1,14 +1,21 @@
 stages:
+  invalidate:
+    cmd: stages/00_invalidate.sh
+    deps:
+      - stages/00_invalidate.sh
+    outs:
+      - checksum
   download_data:
     cmd: Rscript R/download.R
     deps:
     - R/download.R
+    - checksum
     outs:
     - cache/download
   unzip_data:
-    cmd: sh Shell/unzip.sh
+    cmd: sh stages/02_unzip.sh
     deps:
-    - Shell/unzip.sh
+    - stages/02_unzip.sh
     - cache/download
     outs:
     - cache/unzip
