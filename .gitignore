@@ -1,5 +1,6 @@
 /cache
-/data/
+/brick/
 run_dvc.sh
 
-/data
+/brick
+/checksum
