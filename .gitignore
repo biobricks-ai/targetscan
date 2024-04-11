@@ -1,6 +1,6 @@
 /cache
 /brick/
 run_dvc.sh
-
+.idea
 /brick
 /checksum
