@@ -6,9 +6,9 @@ stages:
     outs:
       - checksum
   download_data:
-    cmd: Rscript R/download.R
+    cmd: Rscript stages/01_download.R
     deps:
-    - R/download.R
+    - stages/01_download.R
     - checksum
     outs:
     - cache/download
@@ -20,9 +20,14 @@ stages:
     outs:
     - cache/unzip
   build_brick:
-    cmd: Rscript R/build.R
+    cmd: Rscript stages/03_build.R
     deps:
-    - R/build.R
+    - stages/03_build.R
     - cache/unzip
     outs:
+    - brick/
+  cleanup:
+    cmd: sh stages/04_cleanup.sh
+    deps:
+    - stages/04_cleanup.sh
     - brick/
