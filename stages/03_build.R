@@ -14,8 +14,8 @@ save_parquet <- function(file) {
 	file_ext = file_ext(file)
 	make_parquet = c("txt", "bed", "gff")
 	is_README = grepl(file, pattern="README")
-
-	if(file_ext %in% make_parquet & !is_README) {
+	ts_directories <- grepl("^targetscan_7.*", dirname(file), ignore.case = TRUE)
+	if(file_ext %in% make_parquet && !is_README && !ts_directories) {
 		 path <- fs::path_ext_remove(file) |> fs::path_ext_set("parquet") |> fs::path_file()
 		 if(file_ext == "bed")
 		 	tmp   <- vroom::vroom(file_path, skip = 1, col_names = c("chrom", "Start", "End", "name", 
@@ -26,11 +26,6 @@ save_parquet <- function(file) {
 		 else
 		 	tmp   <- vroom::vroom(file_path)
 		 arrow::write_parquet(tmp,fs::path(dir,path))
-	}
-
-	else {
-		out_file = paste0(dir, fs::path_file(file))
-		file.copy(from=file_path, to=out_file)
 	}
 }
 
