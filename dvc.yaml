@@ -26,8 +26,3 @@ stages:
     - cache/unzip
     outs:
     - brick/
-  cleanup:
-    cmd: sh stages/04_cleanup.sh
-    deps:
-    - stages/04_cleanup.sh
-    - brick/
