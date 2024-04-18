@@ -10,22 +10,22 @@ stages:
       nfiles: 1
     - path: stages/01_download.R
       hash: md5
-      md5: d408550fd58fb804985df95c0f7b7313
-      size: 735
+      md5: 4d9ce2831d61c6264701f4bdbe8ae5c3
+      size: 847
     outs:
     - path: cache/download
       hash: md5
-      md5: c6d8d7b240971dbdc9add28657156f7f.dir
-      size: 2986334811
-      nfiles: 19
+      md5: 42e79855fa1d3c9cf4b75c82bc23975e.dir
+      size: 2979584180
+      nfiles: 16
   unzip_data:
     cmd: sh stages/02_unzip.sh
     deps:
     - path: cache/download
       hash: md5
-      md5: c6d8d7b240971dbdc9add28657156f7f.dir
-      size: 2986334811
-      nfiles: 19
+      md5: 42e79855fa1d3c9cf4b75c82bc23975e.dir
+      size: 2979584180
+      nfiles: 16
     - path: stages/02_unzip.sh
       hash: md5
       md5: 5b95b85601cab9f47fc01fe58e65e54d
@@ -33,27 +33,27 @@ stages:
     outs:
     - path: cache/unzip
       hash: md5
-      md5: 34906d361d18fff7b01dc2e4d448cbb6.dir
-      size: 22024040507
-      nfiles: 130
+      md5: d9db465dc0b1a6f0b01f9aa3b2c7940f.dir
+      size: 22006679376
+      nfiles: 34
   build_brick:
     cmd: Rscript stages/03_build.R
     deps:
     - path: cache/unzip
       hash: md5
-      md5: 34906d361d18fff7b01dc2e4d448cbb6.dir
-      size: 22024040507
-      nfiles: 130
+      md5: d9db465dc0b1a6f0b01f9aa3b2c7940f.dir
+      size: 22006679376
+      nfiles: 34
     - path: stages/03_build.R
       hash: md5
-      md5: bee9fe7a35292bdb960ccb86596325d6
-      size: 1355
+      md5: 2a212f49bda9d3e0a111fced113f87b0
+      size: 1354
     outs:
     - path: brick/
       hash: md5
-      md5: de007fc87f3faae0cb2bb1e7748275cc.dir
-      size: 4645817207
-      nfiles: 108
+      md5: 601f432f3e554c07a415bc00bd0ff796.dir
+      size: 4629925227
+      nfiles: 23
   invalidate:
     cmd: stages/00_invalidate.sh
     deps:
@@ -67,3 +67,15 @@ stages:
       md5: 393db31ad8ff857a3b922644b7bfe182.dir
       size: 9912
       nfiles: 1
+  cleanup:
+    cmd: sh stages/04_cleanup.sh
+    deps:
+    - path: brick/
+      hash: md5
+      md5: 601f432f3e554c07a415bc00bd0ff796.dir
+      size: 4629925227
+      nfiles: 23
+    - path: stages/04_cleanup.sh
+      hash: md5
+      md5: cc0a2e82c7beca9a3d0b024dc4ca0e7e
+      size: 248
