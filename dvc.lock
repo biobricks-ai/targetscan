@@ -46,13 +46,13 @@ stages:
       nfiles: 34
     - path: stages/03_build.R
       hash: md5
-      md5: 2a212f49bda9d3e0a111fced113f87b0
-      size: 1354
+      md5: 147dd8caa33aee69c1c030a3a4987a91
+      size: 1256
     outs:
     - path: brick/
       hash: md5
-      md5: 601f432f3e554c07a415bc00bd0ff796.dir
-      size: 4629925227
+      md5: 017f7a2a1e2ff994adff3af327f5c244.dir
+      size: 4629119270
       nfiles: 23
   invalidate:
     cmd: stages/00_invalidate.sh
